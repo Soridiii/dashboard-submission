@@ -5,12 +5,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-@st.cache_data
-def load_data():
-    df = pd.read_csv("all_data1.csv", parse_dates=["order_purchase_timestamp"])
-    return df
-
-
 def filter_data_by_date(df, start_date, end_date):
     cols_needed = ["order_purchase_timestamp",
                    "order_id", "customer_unique_id", "payment_value"]
@@ -47,7 +41,7 @@ def segment_customers(df):
     return customer_segmentation
 
 
-df = load_data()
+df = pd.read_csv("all_data1.csv", parse_dates=["order_purchase_timestamp"])
 
 st.sidebar.header("📆 Pilih Rentang Waktu")
 min_date = df["order_purchase_timestamp"].min()
