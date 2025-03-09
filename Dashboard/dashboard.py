@@ -41,7 +41,8 @@ def segment_customers(df):
     return customer_segmentation
 
 
-df = pd.read_csv("all_data1.csv", parse_dates=["order_purchase_timestamp"])
+df = pd.read_csv("Dashboard/all_data1.csv",
+                 parse_dates=["order_purchase_timestamp"])
 
 st.sidebar.header("📆 Pilih Rentang Waktu")
 min_date = df["order_purchase_timestamp"].min()
